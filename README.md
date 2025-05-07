@@ -60,7 +60,7 @@ cadeia-de-markov-unifacs/
 1. Certifique-se de ter o Julia instalado em sua máquina.
 2. Clone este repositório:
    ```
-   git clone...
+   git clone git@github.com:DeveloperEdd/markov-chain-julia-cc.git
    ```
 3. Ative o ambiente e instale as dependências:
    ```
