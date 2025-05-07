@@ -17,7 +17,6 @@ Este projeto foi desenvolvido como parte de um trabalho acadêmico da disciplina
 - [Tecnologias](#️-tecnologias)
 - [Estrutura do Projeto](#-estrutura-do-projeto)
 - [Como executar](#️-como-executar)
-- [Integrantes do Grupo](#-integrantes-do-grupo)
 
 ## Descrição
 
@@ -75,4 +74,3 @@ cadeia-de-markov-unifacs/
    ```
 
 [Voltar para o topo](#informações-do-projeto)
-# markov-chain-julia-cc
