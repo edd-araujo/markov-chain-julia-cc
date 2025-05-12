@@ -4,7 +4,7 @@
 
 - Curso: Ciência da Computação
 - Semestre: 5º semestre (2025.1)
-- Integrantes: [Edioelson Júnior A. B. Teixeira](https://github.com/DeveloperEdd), [Gabriel Silva Magalhães](https://github.com/Gabrielsilvamagalhaes) e [Hanspeter Dietiker](https://github.com/hanspeterdietiker)
+- Integrantes: [Edioelson Júnior A. B. Teixeira](https://github.com/edd-araujo), [Gabriel Silva Magalhães](https://github.com/Gabrielsilvamagalhaes) e [Hanspeter Dietiker](https://github.com/hanspeterdietiker)
 - Disciplina: Estruturas Matemáticas
 - Orientador: Wellington Lacerda
 - Universidade: UNIFACS
