@@ -14,10 +14,10 @@ function simulate_influenza_progression(; days_to_simulate = 30, initial_populat
         0.00 0.00 0.15 0.85   # C
     ]
 
-    println("\nMatriz de Transição:")
+    println("\nMatriz de Transição:\n")
     state_names = ["S", "I", "R", "C"]
     for i in 1:4
-        println("$(state_names[i]) -> ", transition_matrix[i, :])
+        println("- $(state_names[i]) -> ", transition_matrix[i, :])
     end
     println()
 
