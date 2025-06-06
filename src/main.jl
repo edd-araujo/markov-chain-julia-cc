@@ -1,4 +1,4 @@
-
+include("influenza_model.jl")
 using LinearAlgebra
 using Printf
 
