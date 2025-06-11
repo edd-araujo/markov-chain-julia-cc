@@ -1,76 +1,124 @@
-# Cadeia de Markov - A3 UNIFACS
+# Simulador de Cadeia de Markov - Projeto A3 UNIFACS
 
 ### Informações do Projeto
 
-- Curso: Ciência da Computação
-- Semestre: 5º semestre (2025.1)
-- Integrantes: [Edioelson Júnior A. B. Teixeira](https://github.com/edd-araujo), [Gabriel Silva Magalhães](https://github.com/Gabrielsilvamagalhaes) e [Hanspeter Dietiker](https://github.com/hanspeterdietiker)
-- Disciplina: Estruturas Matemáticas
-- Orientador: Wellington Lacerda
-- Universidade: UNIFACS
+- **Curso**: Ciência da Computação
+- **Semestre**: 5º semestre (2025.1)
+- **Integrantes**:
+  - [Edioelson Júnior A. B. Teixeira](https://github.com/edd-araujo)
+  - [Gabriel Silva Magalhães](https://github.com/Gabrielsilvamagalhaes)
+  - [Hanspeter Dietiker](https://github.com/hanspeterdietiker)
+- **Disciplina**: Estruturas Matemáticas
+- **Orientador**: Wellington Lacerda
+- **Universidade**: Universidade Salvador - UNIFACS
 
-Este projeto foi desenvolvido como parte de um trabalho acadêmico da disciplina de **Estruturas Matemáticas**, no curso de Ciência da Computação da Universidade Salvador (**UNIFACS**). O objetivo é implementar uma **Cadeia de Markov** utilizando a linguagem **Julia**.
+Este projeto foi desenvolvido como parte de um trabalho acadêmico da disciplina de **Estruturas Matemáticas**, no curso de Ciência da Computação da Universidade Salvador - **UNIFACS**. O objetivo é implementar uma **Cadeia de Markov** utilizando a linguagem **Julia**.
 
 #### Sumário
 
-- [Descrição](#-descrição)
-- [Tecnologias](#️-tecnologias)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Como executar](#️-como-executar)
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Modelos Implementados](#modelos-implementados)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Instruções de Instalação e Execução](#instruções-de-instalação-e-execução)
 
-## Descrição
+## Descrição do Projeto
 
-Este projeto utiliza o conceito de Cadeias de Markov para modelar a progressão de uma doença ao longo do tempo. Uma cadeia de Markov é um **modelo matemático** que descreve um processo estocástico com a propriedade de memória limitada: o **próximo estado** do sistema depende apenas do **estado atual**, e não da sequência de eventos anteriores.
+Este projeto consiste em um simulador de Cadeia de Markov com duas funcionalidades principais:
 
-### Objetivo
+1.  **Modelo de Progressão de Doença (Gripe/Influenza):** Simula a progressão da gripe/influenza em uma população, analisando a dinâmica da doença ao longo do tempo.
+2.  **Modelo Personalizado (NxN):** Permite ao usuário criar e simular uma Cadeia de Markov genérica de tamanho NxN, definindo todos os parâmetros da simulação.
 
-A aplicação simula a evolução de uma população de pacientes entre diferentes estados de saúde, como:
+Uma cadeia de Markov é um **modelo matemático** que descreve um processo estocástico com a propriedade de memória limitada: o **próximo estado** do sistema depende apenas do **estado atual**, e não da sequência de eventos anteriores.
 
-- Saudável
-- Infectado
-- Recuperado
+## Modelos Implementados
 
-Com base em uma **matriz de transição** de probabilidades, o código:
+### 1. Modelo de Progressão de Doença (Gripe/Influenza)
 
-- Representa os estados e suas transições probabilísticas;
-- Calcula a distribuição de indivíduos entre os estados ao longo de n passos;
-- Simula a evolução do sistema com gráficos e visualizações;
-- Determina a distribuição estacionária, se houver, indicando o comportamento de longo prazo.
+Este modelo simula a progressão da gripe/influenza em uma população de 1000 indivíduos, com o objetivo de analisar a dinâmica da doença ao longo do tempo. A simulação é realizada por um período de 30 dias, com relatórios apresentados a cada 5 dias para acompanhar a evolução da doença.
 
-## Tecnologias
+O modelo considera quatro estados possíveis:
 
-- **Linguagem**: [Julia](https://julialang.org/)
-- **Versão utilizada**: 1.11.5
+- **Suscetível (S):** Indivíduos que ainda não foram infectados pelo vírus.
+- **Infectado (I):** Indivíduos que estão atualmente infectados com a gripe.
+- **Recuperado (R):** Indivíduos que se recuperaram da gripe.
+- **Complicações (C):** Indivíduos que desenvolveram alguma complicação decorrente da doença.
+
+### 2. Modelo Personalizado (NxN)
+
+Este modelo permite que o usuário crie e simule uma Cadeia de Markov genérica de tamanho NxN, onde N é o número de estados. O usuário tem controle total sobre:
+
+- **Matriz de Transição:** Define o número de estados (N) para a matriz de transição NxN.
+- **Probabilidade de Transição:** Especifica as probabilidades de transição entre cada par de estados.
+- **Número de Iterações:** Define o número de passos na simulação.
+- **Número de Entidades:** Define quantas entidades serão simuladas simultaneamente.
+
+## Tecnologias Utilizadas
+
+- **Linguagem:** [Julia](https://julialang.org/)
+- **Versão Utilizada:** 1.11.5
+- **Pacotes:**
+  - Distributions.jl
+  - LinearAlgebra
+  - Printf
+  - StatsBase
+  - Documenter
 
 ## Estrutura do Projeto
 
 ```bash
-
-cadeia-de-markov-unifacs/
+markov-chain-julia-cc/
 ├── src/
-│   ├── main.jl            # Arquivo principal
-│   └── markov.jl          # Funções relacionadas à cadeia de Markov
-├── Manifest.toml          # Versões dos pacotes
-├── Project.toml           # Configuração do projeto
-└── README.md              # Documentação do projeto
+│   ├── main.jl                       # Arquivo principal
+│   ├── influenza_model.jl            # Modelo de progressão da gripe/influenza
+│   ├── custom_markov_chain_model.jl  # Modelo personalizado (NxN)
+│   └── simulation.jl                 # Funções de simulação
+├── LICENSE                           # Licensa MIT
+├── Manifest.toml                     # Versões dos pacotes
+├── Project.toml                      # Configuração do projeto
+└── README.md                         # Documentação do projeto
 ```
 
-## Como executar
+## Instruções de Instalação e Execução
 
-1. Certifique-se de ter o Julia instalado em sua máquina.
-2. Clone este repositório:
+1. **Pré-requisitos:**
+   - [Julia 1.11.5](https://julialang.org/install/) instalado.
+   - [Git](https://git-scm.com/downloads) instalado.
+2. **Clone o repositório**:
+
+   ```bash
+   git clone git@github.com:edd-araujo/markov-chain-julia-cc.git
+   cd markov-chain-julia-cc
    ```
-   git clone git@github.com:DeveloperEdd/markov-chain-julia-cc.git
+
+3. **Instale as dependências:**
+
+   ```bash
+   julia --project
    ```
-3. Ative o ambiente e instale as dependências:
+
+   No REPL do Julia, pressione `]` para entrar no modo de gerenciamento de pacotes e execute:
+
+   ```bash
+   instatiate
    ```
-   using Pkg
-    Pkg.activate(".")
-    Pkg.instantiate()
+
+   Se o comando acima não funcionar, adicione as dependências manualmente:
+
+   ```bash
+   add Distributions Documenter LinearAlgebra Printf StatsBase
    ```
-4. Execute o projeto:
+
+4. **Execute o projeto:**
+
+   ```bash
+   julia src/main.jl
    ```
+
+   Ou se ainda estiver no REPL do Julia:
+
+   ```bash
    include("src/main.jl")
    ```
 
-[Voltar para o topo](#informações-do-projeto)
+[Voltar para o topo](#simulador-de-cadeia-de-markov---projeto-a3-unifacs)
