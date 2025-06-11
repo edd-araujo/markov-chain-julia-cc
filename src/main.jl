@@ -1,4 +1,7 @@
 include("influenza_model.jl")
+include("simulation.jl")
+include("custom_markov_chain_model.jl")
+include("clear_screen.jl")
 using LinearAlgebra
 using Printf
 
@@ -39,47 +42,56 @@ function execute_generic_model()
 	return state_history
 end
 
-# Main menu function
+
 function main()
 	println("=" ^ 50)
 	println("        SIMULADOR DE CADEIA DE MARKOV")
 	println("=" ^ 50)
-	println()
-	println("Selecione uma das opções abaixo:\n")
-	println("1 - Modelo de Progressão de Doença")
-	println("2 - Modelo Personalizado (NxN)")
-	println("0 - Sair")
-	println()
 
 	while true
-		print("Selecione uma das opções (1, 2 ou 0): ")
-		choice = strip(readline())
+			println()
+			println("Selecione uma das opções abaixo:\n")
+			println("1 - Modelo de Progressão de Doença")
+			println("2 - Modelo Personalizado (NxN)")
+			println("3 - Limpar Tela")
+			println("0 - Sair")
+			println()
+			print("Selecione uma das opções (0, 1, 2 ou 3): ")
+			choice = strip(readline())
 
-		if choice == "1"
-			try
-				run_disease_model()
-			catch e
-				println("Erro ao executar o modelo de doença: $e")
-				println("Verifique se todas as funções estão implementadas corretamente.")
+			if choice == "1"
+					try
+							run_disease_model()
+					catch e
+							println("Erro ao executar o modelo de doença: $e")
+							println("Verifique se todas as funções estão implementadas corretamente.")
+					end
+
+			elseif choice == "2"
+					try
+							execute_generic_model()
+					catch e
+							println("Erro ao executar o modelo personalizado: $e")
+							println("Verifique se todas as funções estão implementadas corretamente.")
+					end
+
+			elseif choice == "3"
+					try
+							clear_screen()
+					catch e
+							println("Não foi possível limpar a tela: $e")
+					end
+
+			elseif choice == "0"
+					println("Encerrando...")
+					break
+
+			else
+					println("Opção inválida! Por favor, digite 0, 1, 2 ou 3.\n")
 			end
-
-		elseif choice == "2"
-			try
-				execute_generic_model()
-			catch e
-				println("Erro ao executar o modelo de doença: $e")
-				println("Verifique se todas as funções estão implementadas corretamente.")
-			end
-
-		elseif choice == "0"
-			println("Encerrando...")
-			break
-
-		else
-			println("Opção inválida! Por favor, digite 0, 1, or 2.\n")
-		end
 	end
 end
+
 
 # Execute the program
 if abspath(PROGRAM_FILE) == @__FILE__
